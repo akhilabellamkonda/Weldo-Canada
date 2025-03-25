@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Weld O Canada - Expert welding, fabrication, and installation services in Ontario. ISO 9001, TSSA, CWB certified.">
+    <meta name="keywords" content="welding, fabrication, installation, steel pallets, pressure vessels, Ontario, TSSA, CWB, ISO 9001">
+    <meta name="author" content="Weld O Canada Inc.">
+    <title>Weld O Canada - Fabrication Solutions</title>
+    <link rel="icon" type="image/png" href="logo.png.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+    <style>
+        :root {
+            --primary-dark: #1A1A1A;
+            --secondary-blue: #4A4A4A;
+            --accent-blue: #A9A9A9;
+            --light-bg: #D3D3D3;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+            --logo-red: #A9A9A9;
+            --metallic-gray: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            min-height: 100vh;
+            height: auto;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: changeBackground 8s infinite;
+            opacity: 0.9;
+        }
+
+        @keyframes changeBackground {
+            0% {
+                background-image: url('https://media.istockphoto.com/id/1359352103/photo/welder-erecting-technical-steel.jpg?s=612x612&w=0&k=20&c=0NF64JVhGa7I6IyDIi39MmmOtkHtzMbRSrkg9d3oTms=');
+            }
+            25% {
+                background-image: url('https://www.lincolntech.edu/sites/default/files/styles/ między_9_1600x900/public/2019-10/types-of-welding-header-2019_0.jpg?h=b3660f0d&itok=HUZjaxeD');
+            }
+            50% {
+                background-image: url('https://waykenrm.com/wp-content/uploads/2022/07/sheet-metal-welding-optimized.jpg');
+            }
+            75% {
+                background-image: url('https://www.supplyht.com/ext/resources/2021/08-2021/sht-0821-Eyeonsafety-2.jpg');
+            }
+            100% {
+                background-image: url('https://media.istockphoto.com/id/1359352103/photo/welder-erecting-technical-steel.jpg?s=612x612&w=0&k=20&c=0NF64JVhGa7I6IyDIi39MmmOtkHtzMbRSrkg9d3oTms=');
+            }
+        }
+
+        .floating-bg {
+            position: absolute;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .floating-bg img {
+            position: absolute;
+            opacity: 0.6;
+            animation: floatAcross 20s linear infinite;
+        }
+
+        .floating-bg .spark1 { top: 10%; left: -50px; animation-delay: 0s; }
+        .floating-bg .spark2 { top: 30%; left: -50px; animation-delay: 5s; }
+        .floating-bg .tool1 { top: 50%; left: -50px; animation-delay: 10s; }
+        .floating-bg .tool2 { top: 70%; left: -50px; animation-delay: 15s; }
+
+        @keyframes floatAcross {
+            0% { transform: translateX(-50px); }
+            100% { transform: translateX(100vw); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        header {
+            background: linear-gradient(90deg, var(--primary-dark), var(--secondary-blue));
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            width: 250px;
+            height: 100px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a:hover {
+            background: var(--logo-red);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a.active {
+            background: var(--logo-red);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .hamburger.close::before {
+            content: '✕';
+        }
+
+        .split-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            width: 100%;
+            background: transparent;
+            position: relative;
+            z-index: 1;
+        }
+
+        .split-screen .left-half {
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            margin: 1rem;
+            padding: 2rem;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .carousel-slide img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .carousel-navigation {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .carousel-navigation button {
+            background: var(--logo-red);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .carousel-navigation button:hover {
+            background: #8A8A8A;
+            transform: translateY(-2px);
+        }
+
+        .carousel-navigation button:disabled {
+            background: var(--metallic-gray);
+            cursor: not-allowed;
+        }
+
+        .carousel-dots {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--secondary-blue);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: var(--logo-red);
+        }
+
+        main {
+            padding-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .container.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #home {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            color: var(--primary-dark);
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: var(--logo-red);
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+        }
+
+        h3 {
+            color: var(--primary-dark);
+            font-size: 1.75rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            color: var(--primary-dark);
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info, .certifications {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-type: disc;
+        }
+
+        ol {
+            list-style-type: decimal;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery img, .gallery video {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            object-fit: cover;
+        }
+
+        .gallery img:hover, .gallery video:hover {
+            transform: scale(1.05);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .lightbox-content img, .lightbox-content video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .certification-lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .certification-lightbox-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .certification-lightbox-content img {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .certification-lightbox-content h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .certification-lightbox-content p {
+            font-size: 1rem;
+        }
+
+        .certification-lightbox .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact-form label {
+            font-weight: 600;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            background-color: #f9fafb;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background: var(--logo-red);
+            color: var(--white);
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #8A8A8A;
+        }
+
+        .certifications .badge {
+            display: inline-block;
+            background: var(--metallic-gray);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            margin: 0.5rem 0;
+        }
+
+        .cta-button-small {
+            display: inline-block;
+            background: var(--logo-red);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button-small:hover {
+            background: #8A8A8A;
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .industries-grid div {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .trade-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .trade-services-grid a {
+            display: block;
+            background: var(--logo-red);
+            color: var(--white);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .trade-services-grid a:hover {
+            background: #8A8A8A;
+            transform: translateY(-3px);
+        }
+
+        .shop-now-btn {
+            display: inline-block;
+            background: var(--logo-red);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .shop-now-btn:hover {
+            background: #8A8A8A;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--logo-red);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: none;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.show {
+            display: block;
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            background: #8A8A8A;
+        }
+
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .newsletter-form {
+            margin: 1rem 0;
+        }
+
+        .newsletter-form input {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 250px;
+            margin-right: 0.5rem;
+        }
+
+        .newsletter-form button {
+            background: var(--logo-red);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #8A8A8A;
+        }
+
+        .downloads {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .downloads a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--logo-red);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .downloads a:hover {
+            background-color: #8A8A8A;
+        }
+
+        .services-section {
+            background-color: var(--light-bg);
+            padding: 40px 0;
+        }
+
+        .services-section .services-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .services-buttons {
+            width: 40%;
+            padding: 20px;
+        }
+
+        .services-buttons h2 {
+            margin-bottom: 20px;
+        }
+
+        .services-buttons button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: var(--logo-red);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .services-buttons button:hover {
+            background-color: #8A8A8A;
+        }
+
+        .services-content {
+            width: 55%;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        .certification-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-items: center;
+        }
+
+        .certification-images img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .certification-images img:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            #home {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .logo {
+                width: 180px;
+                height: 80px;
+                object-fit: contain;
+            }
+
+            .split-screen {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .split-screen .left-half {
+                margin: 1rem 0;
+                padding: 1rem;
+                max-width: 100%;
+            }
+
+            .carousel-container {
+                max-width: 100%;
+            }
+
+            .carousel-slide img {
+                max-width: 100%;
+            }
+
+            .services-section .services-container {
+                flex-direction: column;
+                padding: 0 10px;
+            }
+
+            .services-buttons, .services-content {
+                width: 100%;
+            }
+
+            .certification-images {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+
+            .certification-images img {
+                max-width: 100px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .industries-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .trade-services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-bg">
+        <img src="welding-spark.png" alt="Welding Spark" class="spark1">
+        <img src="welding-spark.png" alt="Welding Spark" class="spark2">
+        <img src="welding-tool.png" alt="Welding Tool" class="tool1">
+        <img src="welding-tool.png" alt="Welding Tool" class="tool2">
+    </div>
+
+    <header>
+        <div class="header-container">
+            <img src="logo.png.png" alt="Weld O Canada Logo - Maple Leaf with Weld O Canada Text" class="logo">
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="active" onclick="showSection('home', this)">Home</a>
+                <a href="#trade-services" onclick="showSection('trade-services', this)">Trade Services</a>
+                <a href="#steelpallet" onclick="showSection('steelpallet', this)">Steel Pallet</a>
+                <a href="#shop" onclick="showSection('shop', this)">Shop</a>
+                <a href="#about" onclick="showSection('about', this)">About Us</a>
+                <a href="#services" onclick="showSection('services', this)">Services</a>
+                <a href="#industries" onclick="showSection('industries', this)">Industries Served</a>
+                <a href="#projects" onclick="showSection('projects', this)">Our Projects</a>
+                <a href="#contact" onclick="showSection('contact', this)">Contact Us</a>
+            </nav>
+            <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">☰</div>
+        </div>
+    </header>
+
+    <section class="container active" id="home">
+        <h2>Welcome to Weld O Canada Inc.</h2>
+        <p>Proudly Canadian, Weld O Canada Inc., a CWB-certified fabrication shop, operates out of a 22,000 sq. ft craned building fully equipped with fabrication equipment. We are certified for (CSA W47.1) in Carbon Steel, Stainless Steel (CSA W47.1), and Aluminum (CSA W47.2).</p>
+        <p>Weld O Canada is also certified for TSSA B31.1 (Power Piping), B31.3 (Process Piping), Fabrication, and Installation. We also provide mechanical contractor services. Our well-versed engineers, estimators, and trades provide seamless technical and customer support. Our safety program allows our staff to work efficiently with no time lost, instilling confidence in supporting your next project.</p>
+        <p>Weld O Canada is also certified in the quality manual ISO 9001:2015, and it has its own HSE Manual for safe operation.</p>
+        <p>Weld O Canada focuses on the fabrication of ASME pressure vessels, biopharmaceutical equipment, modular skids, vacuum chambers, storage tanks, and other custom-designed equipment for stainless steel applications. Industries served include biopharmaceutical, semiconductor, alternative energy, power generation, and other industrial applications.</p>
+        <p>Our clients consist of well-established and industry-leading firms that require exceptional precision and quality-engineered components delivered on time and at competitive prices.</p>
+        <p>With our ISO 9001 and TSSA certifications, along with CWB 47.1 & 47.2 and CSA-51 certifications, we are committed to upholding the highest standards of quality and safety in all our projects.</p>
+
+        <h3>Our Expertise</h3>
+        <ul>
+            <li><strong>Welding and Fabrication:</strong> We specialize in providing welding and fabrication services for various industries, including power and process pipe welding, custom fabrication, and structural work.</li>
+            <li><strong>Certification:</strong> Our TSSA certification for power and process pipe welding (B31.1 & B31.3) and CWB certification (47.1 & 47.2) demonstrate our expertise and compliance with industry standards.</li>
+            <li><strong>CSA-51 Certification:</strong> As certified CSA-51 Boiler and Pressure Vessel welders, we possess the necessary skills and qualifications to handle critical projects in this field.</li>
+        </ul>
+
+        <h3>Why Choose Weld O Canada?</h3>
+        <ol>
+            <li><strong>Quality Assurance:</strong> Our ISO 9001 certification ensures that our processes are streamlined and focused on delivering exceptional quality in every project.</li>
+            <li><strong>Safety and Compliance:</strong> Our TSSA, CWB, and CSA-51 certifications guarantee that our work meets the highest safety and regulatory standards.</li>
+            <li><strong>Experience and Expertise:</strong> With years of experience and a team of skilled welders and fabricators, we have the knowledge and capabilities to handle complex projects.</li>
+            <li><strong>Commitment to Customer Satisfaction:</strong> We prioritize our clients’ needs and work closely with them to understand their requirements, ensuring that we deliver results that exceed their expectations.</li>
+            <li><strong>Timely Delivery:</strong> We understand the importance of meeting project deadlines and strive to complete projects on time and within budget.</li>
+        </ol>
+
+        <div class="downloads">
+            <a href="Weld_O_Canada_Brochure.pdf" download="Weld_O_Canada_Brochure.pdf">Download Our Brochure</a>
+        </div>
+
+        <div class="services-section">
+            <div class="services-container">
+                <div class="services-buttons">
+                    <h2>Our Services</h2>
+                    <button onclick="showContent('piping-specialization')">Piping Specialization</button>
+                    <button onclick="showContent('custom-engineering-fabrication')">Custom Engineering and Fabrication</button>
+                    <button onclick="showContent('steel-skids')">Steel Skids</button>
+                    <button onclick="showContent('steel-pallets')">Steel Pallets</button>
+                </div>
+                <div class="services-content">
+                    <div id="piping-specialization" class="content">
+                        <h3>Piping Specialization</h3>
+                        <p>Weld O Canada specializes in quality control for shop fabrication, field installation, and erection of piping systems in accordance with:</p>
+                        <ul>
+                            <li>ASME</li>
+                            <li>B31.1 Power Piping Code</li>
+                            <li>B31.3 Process Piping Code</li>
+                            <li>CSA-B51 Boiler Pressure Vessel and Pressure Piping Code</li>
+                        </ul>
+                        <p><a href="#contact" class="cta-button-small" onclick="showSection('contact')">Request a Quote</a></p>
+                    </div>
+                    <div id="custom-engineering-fabrication" class="content">
+                        <h3>Custom Engineering and Fabrication</h3>
+                        <p>Our engineering team is dedicated and experienced in handling custom engineering projects, covering everything from initial CAD design work to shop drawings and manufacturing.</p>
+                        <p><a href="#contact" class="cta-button-small" onclick="showSection('contact')">Request a Quote</a></p>
+                    </div>
+                    <div id="steel-skids" class="content">
+                        <h3>Steel Skids</h3>
+                        <p>At Weld O Canada Inc., we specialize in crafting steel skids that meet your exact specifications and exceed your expectations. Our skids are built for durability, portability, and seamless integration into modular systems.</p>
+                        <p>We offer custom solutions for equipment bases, industrial transport, and heavy-duty applications, ensuring compliance with safety and quality standards.</p>
+                        <p><a href="#contact" class="cta-button-small" onclick="showSection('contact')">Request a Quote</a></p>
+                    </div>
+                    <div id="steel-pallets" class="content">
+                        <h3>Steel Pallets</h3>
+                        <p>Weld O Canada offers a range of high-quality steel pallets, all sized at 40 x 40 inches, designed for durability and versatility in industrial applications.</p>
+                        <p><a href="#contact" class="cta-button-small" onclick="showSection('contact')">Request a Quote</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Our Certifications</h3>
+        <div class="certification-images">
+            <img src="https://weldocanada.com/wp-content/uploads/2021/02/tssa.jpg" alt="TSSA Certification" onclick="openCertificationLightbox('tssa')">
+            <img src="https://weldocanada.com/wp-content/uploads/2024/02/ASR-Logo-Medium-500x500.jpg" alt="ASR Certification" onclick="openCertificationLightbox('asr')">
+            <img src="https://weldocanada.com/wp-content/uploads/2021/03/ISN_-logo-150x150.png" alt="ISN Certification" onclick="openCertificationLightbox('isn')">
+            <img src="https://weldocanada.com/wp-content/uploads/2021/07/weldo1-500x500.png" alt="Weld O Canada Certification" onclick="openCertificationLightbox('weldo')">
+            <img src="https://weldocanada.com/wp-content/uploads/2021/03/Mto-logo-500x500.png" alt="MTO Certification" onclickliterally onclick="openCertificationLightbox('mto')">
+            <img src="https://weldocanada.com/wp-content/uploads/2024/02/ANAB-Symbol-RGB-17021-1-MS-CB-White-Bkgr-500x500.png" alt="ANAB Certification" onclick="openCertificationLightbox('anab')">
+        </div>
+    </section>
+
+    <main>
+        <div class="split-screen">
+            <div class="left-half">
+                <div class="carousel-container">
+                    <div class="carousel" id="carousel"></div>
+                    <div class="carousel-navigation">
+                        <button id="prev-page">Previous</button>
+                        <button id="next-page">Next</button>
+                    </div>
+                    <div class="carousel-dots" id="carousel-dots"></div>
+                    <p id="page-info"></p>
+                </div>
+            </div>
+        </div>
+
+        <section class="container" id="trade-services">
+            <h2>Our Trade Services</h2>
+            <p>At Weld O Canada, we offer a comprehensive range of trade services to meet the needs of various industries. Click on any service below to learn more.</p>
+            <div class="trade-services-grid">
+                <a href="#services" onclick="showSectionAndContent('services', 'steel-skids', this)">Steel Skids</a>
+                <a href="#services" onclick="showSectionAndContent('services', 'tssa', this)">TSSA</a>
+                <a href="#services" onclick="showSectionAndContent('services', 'cwb', this)">CWB</a>
+                <a href="#services" onclick="showSectionAndContent('services', 'engineering-piping', this)">Engineering Piping</a>
+                <a href="#services" onclick="showSectionAndContent('services', 'pressure-vessel', this)">Pressure Vessel</a>
+                <a href="#services" onclick="showSectionAndContent('services', 'structural-fabrication', this)">Structural Fabrication</a>
+                <a href="#services" onclick="showSectionAndContent('services', 'tank-fabrication', this)">Tank Fabrication</a>
+                <a href="#services" onclick="showSectionAndContent('services', 'piping-fabrication', this)">Piping Fabrication</a>
+                <a href="#services" onclick="showSectionAndContent('services', 'joist-manufacturing', this)">Joist Manufacturing</a>
+                <a href="#services" onclick="showSectionAndContent('services', 'plasma-flame-cutting', this)">Plasma & Flame Cutting</a>
+            </div>
+        </section>
+
+        <section class="container" id="steelpallet">
+            <h2>Custom Steel Pallet Solutions</h2>
+            <p>Weld O Canada specializes in designing and fabricating custom steel pallets that are built to last. Our steel pallets are engineered for durability, versatility, and efficiency in industrial applications.</p>
+            <h3>Features of Our Steel Pallets</h3>
+            <ul>
+                <li><strong>Standard Size:</strong> 40 x 40 inches, customizable to client specifications.</li>
+                <li><strong>Material:</strong> High-grade carbon steel or stainless steel options.</li>
+                <li><strong>Load Capacity:</strong> Designed to handle heavy loads up to 5000 lbs.</li>
+                <li><strong>Durability:</strong> Resistant to wear, corrosion, and extreme conditions.</li>
+                <li><strong>Applications:</strong> Ideal for manufacturing, warehousing, and transportation.</li>
+            </ul>
+            <p>Whether you need pallets for storage, shipping, or specialized industrial use, our team ensures precision craftsmanship and timely delivery.</p>
+            <a href="#contact" class="cta-button-small" onclick="showSection('contact')">Get a Quote</a>
+        </section>
+
+        <section class="container" id="shop">
+            <h2>Shop Our Products & Services</h2>
+            <p>Explore our range of premium welding and fabrication solutions. Click below to inquire about any of our offerings.</p>
+            <div class="trade-services-grid">
+                <a href="#contact" onclick="showSection('contact', this)">Piping Specialization</a>
+                <a href="#contact" onclick="showSection('contact', this)">Custom Engineering and Fabrication</a>
+                <a href="#contact" onclick="showSection('contact', this)">Steel Skids</a>
+                <a href="#contact" onclick="showSection('contact', this)">Steel Pallets</a>
+            </div>
+        </section>
+
+        <section class="container" id="about">
+            <h2>About Us</h2>
+            <p>Proudly Canadian, Weld O Canada Inc. is a CWB-certified fabrication shop operating out of a 22,000 sq. ft craned building fully equipped with state-of-the-art fabrication equipment. Established with a commitment to excellence, we have grown into a trusted name in welding, fabrication, and mechanical services across Ontario and beyond.</p>
+            <h3>Our Mission</h3>
+            <p>To deliver high-quality, safe, and innovative fabrication solutions that exceed client expectations while upholding the highest industry standards.</p>
+            <h3>Our Vision</h3>
+            <p>To be the leading provider of custom welding and fabrication services in Canada, recognized for our expertise, reliability, and customer-centric approach.</p>
+            <h3>Our Team</h3>
+            <p>Our skilled workforce includes certified welders, engineers, estimators, and project managers who bring years of experience to every project. We prioritize safety, quality, and efficiency, ensuring seamless execution from design to delivery.</p>
+            <p>With certifications like ISO 9001:2015, TSSA, and CWB (CSA W47.1 & W47.2), we are equipped to handle complex projects across various industries.</p>
+        </section>
+
+        <section class="container" id="services">
+            <h2>Our Services</h2>
+            <p>Weld O Canada offers a comprehensive range of welding, fabrication, and mechanical services tailored to meet the needs of diverse industries. Explore our offerings below.</p>
+            <div class="services-section">
+                <div class="services-container">
+                    <div class="services-buttons">
+                        <h2>Service Categories</h2>
+                        <button onclick="showContent('steel-skids')">Steel Skids</button>
+                        <button onclick="showContent('tssa')">TSSA</button>
+                        <button onclick="showContent('cwb')">CWB</button>
+                        <button onclick="showContent('engineering-piping')">Engineering Piping</button>
+                        <button onclick="showContent('pressure-vessel')">Pressure Vessel</button>
+                        <button onclick="showContent('structural-fabrication')">Structural Fabrication</button>
+                        <button onclick="showContent('tank-fabrication')">Tank Fabrication</button>
+                        <button onclick="showContent('piping-fabrication')">Piping Fabrication</button>
+                        <button onclick="showContent('joist-manufacturing')">Joist Manufacturing</button>
+                        <button onclick="showContent('plasma-flame-cutting')">Plasma & Flame Cutting</button>
+                    </div>
+                    <div class="services-content">
+                        <div id="steel-skids" class="content">
+                            <h3>Steel Skids Services</h3>
+                            <p>We specialize in crafting steel skids that meet exact specifications for modular systems, equipment bases, and industrial applications. Our skids are designed for durability, portability, and seamless integration into your operations.</p>
+                            <p>With options for custom finishes and reinforcements, we cater to industries requiring robust solutions for transporting heavy machinery or supporting critical infrastructure projects.</p>
+                            <p><a href="#contact" class="cta-button-small" onclick="showSection('contact')">Request a Quote</a></p>
+                        </div>
+                        <div id="tssa" class="content">
+                            <h3>TSSA Services</h3>
+                            <p>Certified for TSSA B31.1 (Power Piping) and B31.3 (Process Piping), we provide fabrication and installation services for pressure piping systems, ensuring compliance with safety standards.</p>
+                            <p><a href="#contact" class="cta-button-small" onclick="showSection('contact')">Request a Quote</a></p>
+                        </div>
+                        <div id="cwb" class="content">
+                            <h3>CWB Services</h3>
+                            <p>Our CWB certification (CSA W47.1 for Carbon Steel, Stainless Steel, and CSA W47.2 for Aluminum) allows us to deliver high-quality welding services for structural and industrial projects.</p>
+                            <p><a href="#contact" class="cta-button-small" onclick="showSection('contact')">Request a Quote</a></p>
+                        </div>
+                        <div id="engineering-piping" class="content">
+                            <h3>Engineering Piping</h3>
+                            <p>From design to installation, our engineering team handles piping systems for power, process, and industrial applications, adhering to ASME and CSA standards.</p>
+                            <p><a href="#contact" class="cta-button-small" onclick="showSection('contact')">Request a Quote</a></p>
+                        </div>
+                        <div id="pressure-vessel" class="content">
+                            <h3>Pressure Vessel Fabrication</h3>
+                            <p>We fabricate ASME-compliant pressure vessels for industries like biopharmaceuticals, energy, and manufacturing, ensuring precision and safety.</p>
+                            <p><a href="#contact" class="cta-button-small" onclick="showSection('contact')">Request a Quote</a></p>
+                        </div>
+                        <div id="structural-fabrication" class="content">
+                            <h3>Structural Fabrication</h3>
+                            <p>Our structural fabrication services include beams, columns, and supports for construction and infrastructure projects, built to last.</p>
+                            <p><a href="#contact" class="cta-button-small" onclick="showSection('contact')">Request a Quote</a></p>
+                        </div>
+                        <div id="tank-fabrication" class="content">
+                            <h3>Tank Fabrication</h3>
+                            <p>We design and build storage tanks and vacuum chambers for various applications, using stainless steel and other high-quality materials.</p>
+                            <p><a href="#contact" class="cta-button-small" onclick="showSection('contact')">Request a Quote</a></p>
+                        </div>
+                        <div id="piping-fabrication" class="content">
+                            <h3>Piping Fabrication</h3>
+                            <p>Our piping fabrication services cover shop fabrication and field installation, meeting ASME B31.1, B31.3, and CSA-B51 standards.</p>
+                            <p><a href="#contact" class="cta-button-small" onclick="showSection('contact')">Request a Quote</a></p>
+                        </div>
+                        <div id="joist-manufacturing" class="content">
+                            <h3>Joist Manufacturing</h3>
+                            <p>We manufacture steel joists for commercial and industrial buildings, providing strong, reliable structural support.</p>
+                            <p><a href="#contact" class="cta-button-small" onclick="showSection('contact')">Request a Quote</a></p>
+                        </div>
+                        <div id="plasma-flame-cutting" class="content">
+                            <h3>Plasma & Flame Cutting</h3>
+                            <p>Using advanced plasma and flame cutting technology, we precisely cut metal components for custom fabrication projects.</p>
+                            <p><a href="#contact" class="cta-button-small" onclick="showSection('contact')">Request a Quote</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" id="industries">
+            <h2>Industries Served</h2>
+            <p>We proudly serve a wide range of industries with our expert welding and fabrication services, delivering tailored solutions to meet unique challenges.</p>
+            <div class="industries-grid">
+                <div>
+                    <h4>Biopharmaceutical</h4>
+                    <p>Custom stainless steel equipment, pressure vessels, and piping systems for pharmaceutical production.</p>
+                </div>
+                <div>
+                    <h4>Semiconductor</h4>
+                    <p>Precision fabrication of vacuum chambers and components for high-tech manufacturing.</p>
+                </div>
+                <div>
+                    <h4>Alternative Energy</h4>
+                    <p>Steel skids and structural supports for renewable energy projects like solar and wind.</p>
+                </div>
+                <div>
+                    <h4>Power Generation</h4>
+                    <p>Piping systems and pressure vessels for power plants, meeting TSSA and ASME standards.</p>
+                </div>
+                <div>
+                    <h4>Oil and Gas</h4>
+                    <p>Piping and steel skids.</p>
+                </div>
+                <div>
+                    <h4>Mining</h4>
+                    <p>Durable steel structures.</p>
+                </div>
+                <div>
+                    <h4>Food and Beverages</h4>
+                    <p>Stainless steel tanks.</p>
+                </div>
+                <div>
+                    <h4>Aerospace</h4>
+                    <p>Precision components.</p>
+                </div>
+                <div>
+                    <h4>Construction</h4>
+                    <p>Structural steel fabrication and joist manufacturing for buildings and infrastructure.</p>
+                </div>
+                <div>
+                    <h4>Manufacturing</h4>
+                    <p>Custom steel pallets, tanks, and fabrication services for industrial production lines.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" id="projects">
+            <h2>Our Projects</h2>
+            <p>Weld O' Canada takes pride in delivering standout projects for clients across Canada.</p>
+            <div class="gallery">
+                <video src="https://weldocanada.com/wp-content/uploads/2021/12/WhatsApp-Video-2021-12-20-at-4.52.12-AM.mp4" poster="https://weldocanada.com/wp-content/uploads/2021/12/WhatsApp-Video-2021-12-20-at-4.52.12-AM-poster.jpg" alt="Welding Process Demonstration" onclick="openLightbox('video', this.src, this.alt)" muted></video>
+                <img src="https://weldocanada.com/wp-content/gallery/gallery/thumbs/thumbs_IMG-20240116-WA0171.jpg" alt="Fabrication Project January 2024" onclick="openLightbox('image', this.src, this.alt)">
+                <img src="https://weldocanada.com/wp-content/gallery/gallery/IMG-20240116-WA0148.jpg" alt="Welding Detail January 2024" onclick="openLightbox('image', this.src, this.alt)">
+            </div>
+        </section>
+
+        <section class="container" id="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:info@weldocanada.com">info@weldocanada.com</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+14166307177">+1 416-630-7177</a></p>
+                <p><strong>Office:</strong> WELD O CANADA INC, 6811 Edwards Blvd, Mississauga, ON L5T 2S2</p>
+            </div>
+            <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name proname="name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" required>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">×</span>
+        <div class="lightbox-content" id="lightbox-content"></div>
+    </div>
+
+    <div class="certification-lightbox" id="certification-lightbox">
+        <span class="close" onclick="closeCertificationLightbox()">×</span>
+        <div class="certification-lightbox-content" id="certification-lightbox-content"></div>
+    </div>
+
+    <a href="#" class="back-to-top" onclick="scrollToTop()">↑</a>
+
+    <footer>
+        <p>Subscribe to Our Newsletter to get Important News, Amazing Offers & Inside Scoops:</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="@yourmail.com" required>
+            <button type="submit">Subscribe</button>
+        </form>
+        <p><a href="#contact">Contact Us</a> | <a href="#about">About Us</a> | <a href="#services">Services</a></p>
+        <p>© Copyright 2025. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let pdfDoc = null;
+        let currentSlide = 0;
+        const scale = 1.5;
+        const carousel = document.getElementById('carousel');
+        const carouselDots = document.getElementById('carousel-dots');
+
+        const url = 'ppt.pdf';
+        pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+            pdfDoc = pdfDoc_;
+            document.getElementById('page-info').textContent = `Page 1 of ${pdfDoc.numPages}`;
+            renderAllSlides();
+        }).catch(function(error) {
+            console.error('Error loading PDF:', error);
+            document.getElementById('page-info').textContent = 'Error loading PDF.';
+        });
+
+        async function renderAllSlides() {
+            for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
+                const page = await pdfDoc.getPage(pageNum);
+                const viewport = page.getViewport({ scale: scale });
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                const renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport
+                };
+                await page.render(renderContext).promise;
+
+                const img = document.createElement('img');
+                img.src = canvas.toDataURL('image/png');
+                img.alt = `Page ${pageNum}`;
+
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                slide.appendChild(img);
+                carousel.appendChild(slide);
+
+                const dot = document.createElement('div');
+                dot.className = 'carousel-dot';
+                dot.dataset.index = pageNum - 1;
+                dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.index)));
+                carouselDots.appendChild(dot);
+            }
+            updateCarousel();
+        }
+
+        function showSlide(index) {
+            const totalSlides = pdfDoc.numPages;
+            if (index >= totalSlides) currentSlide = totalSlides - 1;
+            else if (index < 0) currentSlide = 0;
+            else currentSlide = index;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const totalSlides = pdfDoc.numPages;
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+            document.getElementById('page-info').textContent = `Page ${currentSlide + 1} of ${totalSlides}`;
+            document.getElementById('prev-page').disabled = currentSlide === 0;
+            document.getElementById('next-page').disabled = currentSlide === totalSlides - 1;
+        }
+
+        document.getElementById('prev-page').addEventListener('click', () => showSlide(currentSlide - 1));
+        document.getElementById('next-page').addEventListener('click', () => showSlide(currentSlide + 1));
+
+        function showSection(sectionId, element) {
+            document.querySelectorAll('.container').forEach(section => section.classList.remove('active'));
+            document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.classList.add('active');
+                if (element) element.classList.add('active');
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                toggleHamburgerIcon();
+            }
+        }
+
+        function showSectionAndContent(sectionId, contentId, element) {
+            showSection(sectionId, element);
+            showContent(contentId);
+        }
+
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+            toggleHamburgerIcon();
+        }
+
+        function toggleHamburgerIcon() {
+            const hamburger = document.getElementById('hamburger');
+            hamburger.classList.toggle('close');
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openLightbox(type, src, alt) {
+            const lightbox = document.getElementById('lightbox');
+            const contentDiv = document.getElementById('lightbox-content');
+            if (type === 'image') {
+                contentDiv.innerHTML = `<img src="${src}" alt="${alt}">`;
+            } else if (type === 'video') {
+                contentDiv.innerHTML = `<video src="${src}" alt="${alt}" controls autoplay></video>`;
+            }
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const contentDiv = document.getElementById('lightbox-content');
+            contentDiv.innerHTML = '';
+            lightbox.style.display = 'none';
+        }
+
+        const certificationContent = {
+            tssa: {
+                img: 'https://weldocanada.com/wp-content/uploads/2021/02/tssa.jpg',
+                title: 'TSSA Certification',
+                text: 'The Technical Standards and Safety Authority (TSSA) certification ensures that Weld O Canada meets stringent safety and quality standards for pressure piping (B31.1 & B31.3), pressure vessels, and mechanical installations.'
+            },
+            asr: {
+                img: 'https://weldocanada.com/wp-content/uploads/2024/02/ASR-Logo-Medium-500x500.jpg',
+                title: 'ASR Certification',
+                text: 'The ASR certification signifies our adherence to high-quality management systems and standards in welding and fabrication.'
+            },
+            isn: {
+                img: 'https://weldocanada.com/wp-content/uploads/2021/03/ISN_-logo-150x150.png',
+                title: 'ISN Certification',
+                text: 'ISN certification demonstrates Weld O Canada’s compliance with safety, insurance, and regulatory requirements, as evaluated by ISNetworld.'
+            },
+            weldo: {
+                img: 'https://weldocanada.com/wp-content/uploads/2021/07/weldo1-500x500.png',
+                title: 'Weld O Canada Brand',
+                text: 'Our brand logo represents over a decade of expertise in welding, fabrication, and engineering solutions.'
+            },
+            mto: {
+                img: 'https://weldocanada.com/wp-content/uploads/2021/03/Mto-logo-500x500.png',
+                title: 'MTO Partnership',
+                text: 'Our collaboration with the Ministry of Transportation (MTO) highlights our capability to support major infrastructure projects.'
+            },
+            anab: {
+                img: 'https://weldocanada.com/wp-content/uploads/2024/02/ANAB-Symbol-RGB-17021-1-MS-CB-White-Bkgr-500x500.png',
+                title: 'ANAB Accreditation',
+                text: 'The ANSI National Accreditation Board (ANAB) accreditation validates our quality management systems under ISO/IEC 17021-1 standards.'
+            }
+        };
+
+        function openCertificationLightbox(certId) {
+            const lightbox = document.getElementById('certification-lightbox');
+            const contentDiv = document.getElementById('certification-lightbox-content');
+            const cert = certificationContent[certId];
+            contentDiv.innerHTML = `
+                <img src="${cert.img}" alt="${cert.title}">
+                <h3>${cert.title}</h3>
+                <p>${cert.text}</p>
+            `;
+            lightbox.style.display = 'flex';
+        }
+
+        function closeCertificationLightbox() {
+            document.getElementById('certification-lightbox').style.display = 'none';
+        }
+
+        function showContent(id) {
+            document.querySelectorAll('.content').forEach(content => content.classList.remove('active'));
+            const contentElement = document.getElementById(id);
+            if (contentElement) contentElement.classList.add('active');
+        }
+
+        window.onscroll = function() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        };
+
+        window.onload = () => {
+            document.getElementById('home').classList.add('active');
+            const firstNavLink = document.querySelector('.nav-links a');
+            if (firstNavLink) firstNavLink.classList.add('active');
+            showContent('piping-specialization');
+        };
+    </script>
+</body>
+</html>
